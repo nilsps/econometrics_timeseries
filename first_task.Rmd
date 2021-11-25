@@ -5,14 +5,33 @@ output: html_notebook
 
 ```{r}
 library(readr)
+library(dplyr)
 ```
 
 ```{r}
 # Testing if it works by loading data 
 
 
-Stocks_CSV = read_delim("Stocks_CSV.csv", delim = ";", escape_double = FALSE, trim_ws = TRUE)
+stocks = read_delim("Stocks_CSV.csv", delim = ";", escape_double = FALSE, trim_ws = TRUE)
+vix = read_delim("VIX_Data.csv", delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+names(stocks)[1] = "date"
+names(vix)[1] = "date"
+
+stocks$date =  as.Date(stocks$date, format = "%d.%m.%y")
+vix$date =  as.Date(vix$date, format = "%d.%m.%y") 
+```
+
+
+#### Exercise create a timeseries realization from board
+```{r}
+?rnorm # Gets the explenation of what it is \ does 
+rnorm(10, mean = 0, sd =5) 
+
+x = 1 + rnorm(500, mean = 0, sd = 1)
+plot(x, type = "line")
 
 ```
+
 
 
