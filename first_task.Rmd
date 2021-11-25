@@ -3,9 +3,16 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+```{r}
+library(readr)
+```
 
 ```{r}
-plot(cars)
+# Testing if it works by loading data 
+
+
+Stocks_CSV = read_delim("Stocks_CSV.csv", delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
 ```
 
 
